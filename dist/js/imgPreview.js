@@ -28,7 +28,7 @@
                  *-----------------------------
                  为容器元素布局
                 */
-                var count=0;
+                var count = 0;
                 // _dom当成wrap-item
                 function setWrap(_dom) {
                     /**
@@ -106,28 +106,6 @@
                 }
                 /**
                  *
-                 *当有图片被删除之后重新再上传
-                 *
-                 */
-                function inputChange(num){
-                    $(ele).find('input[type="file"]').change(function(e) {
-                        if (opts.multi == 1) {
-                            if ($(ele).data('multi') != undefined && e.target.files.length > ($(ele).data('multi') - num + 1)) {
-                                alert('超过了' + $(ele).data('multi') + '张限制了')
-                                return false
-                            } else if ($(ele).data('multi') == undefined && e.target.files.length > opts.multi) {
-                                alert('超过了' + opts.multi + '张限制了')
-                                return false;
-                            }
-
-                        } else if (opts.multi > 1 && e.target.files.length > (opts.multi - num + 1)) {
-                            alert('超过了' + opts.multi + '张限制了')
-                            return false
-                        }
-                    })
-                }
-                /**
-                 *
                  *根据present的值来对wrap容器进行相应的操作，wrap容器的布局
                  *图片预览后对图片个wrap容器的操作
                  */
@@ -154,11 +132,9 @@
                         _dom.children('.upload-delete').click(function() {
                             count++;
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
+                                curImgCount--;
                                 $(this).parent('div').remove();
                                 var imgNums = $(ele).children('div').length;
-                                console.log('当前div'+imgNums)
-                                inputChange(imgNums)
-                                console.log('count'+count)
                             }
                             $(this).parent('div').css('background-image', 'url()');
                             $(this).css('display', 'none');
@@ -185,9 +161,7 @@
                             count++;
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 $(this).parent('div').remove();
-                                var imgNums = $(ele).children('div').length;
-                                console.log('当前div'+imgNums)
-                                inputChange(imgNums)
+                                curImgCount--;
                             }
                             $(this).siblings('img').removeAttr('src');
                             $(this).css('display', 'none');
@@ -231,8 +205,8 @@
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 $(this).parent('div').remove();
                                 var imgNums = $(ele).children('div').length;
-                                console.log('当前div'+imgNums)
-                                inputChange(imgNums)
+                                console.log('当前div' + imgNums)
+                                curImgCount--;
 
                             }
                             $(this).siblings('img').removeAttr('src');
@@ -277,7 +251,6 @@
                 var createDiv = function(_dom, files, type) {
                     for (var n = 0; n < files.length; n++) {
                         var _self = $(_dom).parents('div').children('div');
-                        console.log(_self)
                         var divIndex = $(_dom).parent('div').index();
                         $(_dom).parents('.img-preview-wrap').prepend(wrapInnerHtml);
                         var _newDiv = $(_dom).parents('div').children('div').eq(0);
@@ -369,28 +342,21 @@
                      *  else(opt.multi==1,也没有设置data-mult){上传的数量就不能多于1张}
                      *  else(opt.multi>1)就不能设置data-multi{上传的数量就不能大于opts.multi的值}
                      */
-                     console.log('chenge'+count)
-                    if(count==0){
-                        console.log('ddd')
-                        console.log(curImgCount)
-                        if (opts.multi == 1) {
-                            if ($(ele).data('multi') != undefined && e.target.files.length > ($(ele).data('multi') - curImgCount )) {
-                                alert('超过了' + $(ele).data('multi') + '张限制了')
-                                return false
-                            } else if ($(ele).data('multi') == undefined && e.target.files.length > opts.multi) {
-                                alert('超过了' + opts.multi + '张限制了')
-                                return false;
-                            }
-
-                        } else if (opts.multi > 1 && e.target.files.length > (opts.multi - curImgCount)) {
-                            alert('超过了' + opts.multi + '张限制了')
+                    if (opts.multi == 1) {
+                        if ($(ele).data('multi') != undefined && e.target.files.length > ($(ele).data('multi') - curImgCount)) {
+                            alert('超过了' + $(ele).data('multi') + '张限制了')
                             return false
+                        } else if ($(ele).data('multi') == undefined && e.target.files.length > opts.multi) {
+                            alert('超过了' + opts.multi + '张限制了')
+                            return false;
                         }
-                        
+
+                    } else if (opts.multi > 1 && e.target.files.length > (opts.multi - curImgCount)) {
+                        alert('超过了' + opts.multi + '张限制了')
+                        return false
                     }
-                curImgCount=e.target.files.length
-                console.log(curImgCount)
-                console.log('现在是' + curImgCount + '张图了')
+
+                    curImgCount += e.target.files.length
                         // 判断当前input已经选择了几个图片
 
                     /**
