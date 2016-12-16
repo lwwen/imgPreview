@@ -24,13 +24,13 @@ _____
 一、引入css
 
 ```
-<link hre='path-to-root/imgPreview.css />'
+	<link hre='path-to-root/imgPreview.css />'
 ```
 
 本插件也使用到iconfont的图标库，也需要引入iconfont的图片库，压缩包里有打包
 
 ```
-<link hre="path-to-root/iconfont.css" />'
+	<link hre="path-to-root/iconfont.css" />'
 ```
 二、引入js
 
@@ -70,7 +70,7 @@ _____
 	<link rel="stylesheet" type="text/css" href="path/uploadImg.css">
 	<link rel="stylesheet" type="text/css" href="path/iconfont/iconfont.css">	
 	<script type="text/javascript" src='path/jquery-2.2.0.min.js'></script>
-		<script type="text/javascript" src='path/uploadImg.js'></script
+	<script type="text/javascript" src='path/uploadImg.js'></script
 </head>
 <body>
 </body>
