@@ -21,6 +21,9 @@
 			float: left;
 			position: relative;
 		}
+		.img-preview-wrap div input[type='file']{
+			width:30px;
+		}
 		.img-preview-wrap .icon-upload1{
 			position: absolute;
 			z-index:-1;

@@ -102,6 +102,7 @@ _____
 
 调用的`present`默认是`full-fill`
 
+
 ####参数
 参数`present`:通过传递参数值来决定你想要图片以哪种形式展示
 
@@ -125,4 +126,6 @@ _____
 | data-multi  |number|1    | 图片最多可以预览的张数，当值为1时，是单图预览，值大于1时是多图预览
 |data-present  |string    | 'full-fill' | 图片展示在父元素的布局效果
 
-####注意📢：js调用的参数会把data-属性的参数覆盖掉，换个意思说就是js的参数的优先级比html的参数的优先级要高
+####注意📢：js调用的参数会把data-属性的参数覆盖掉，换个意思说就是js的参数的优先级比html的参数的优先级要高，当然还有特别的
+
+###要是你js参数是multi:1和present:'full-fill'这些默认参数的话，插件会优先调用你的html上的data-multi,和data-present😯
