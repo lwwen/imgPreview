@@ -1,135 +1,128 @@
 #图片预览
 -----
-实现图片上传前的预览功能，有单图预览跟多图预览
-##INSTALLATION
+##图片预览说明
+实现图片上传前的预览功能，有单图预览跟多图预览，
+
+图片包括三种布局方法：
+
+1.full-fill：图片随着div改变，图片根据div的宽高来拉伸，直到占满div
+
+2.white-space:当图片尺寸比例刚好跟div的宽高比例对等，就会占满div；当图片尺寸不对等时，会子适应本身图片的尺寸比例来适应div，图片不会变形拉伸，会在div里面垂直水平居中
+
+3.back-clip:上传的图片放在div的background-image背景图上，图片会占满整个div,但是会根据尺寸来剪裁图片
+	
+
+
+##下载方式
 ____
 ###下载源代码
-下载xxx.zip
+你可以在右上角👆点击下载
 ##npm
-'npm-v'
-##USAGE
+😯暂时没有
+##用法
 _____
 一、引入css
 
 ```
-<link hre='path-to-root/img-preview.css />'
+<link hre='path-to-root/imgPreview.css />'
+```
+
+本插件也使用到iconfont的图标库，也需要引入iconfont的图片库，压缩包里有打包
+
+```
+<link hre="path-to-root/iconfont.css" />'
 ```
 二、引入js
 
+```
+	<script type="text/javascript" src='path-to-root/uploadImg.js'></script>
+```
 
-###使用方法
+##使用方法
 
-#####通过data属性
-#####通过js调用
+###通过data属性
+你可以通过data-multi属性来决定不是多图预览还是单图预览
 
-###单图片上传
+也可以通过data-present：来决定你是选择哪种布局方法，具体的布局方式👆有
+
+###通过js调用
+```
+	$('.img-preview-wrap').imgPreview({
+		width:'100px',
+		height:'200px',
+		present:'white-space',
+		multi:3
+	});
+```
+注意：js的参数会优先调用，就是说，你要是在js设置了present,那么很遗憾，😯，你的data-present就没有用了；当然，data-multi也是这样子的😄,
+
+
+##图片预览开始😄
 -----
-######开始，基于jQuery，因为jQuery插件
+###快速开始，基于jQuery，因为jQuery插件
+
 ```
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset='UTF-8'>
 	<title>图片上传</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/uploadImg.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/iconfont/iconfont.css">	
-	<script type="text/javascript" src='assets/js/jquery-2.2.0.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="path/uploadImg.css">
+	<link rel="stylesheet" type="text/css" href="path/iconfont/iconfont.css">	
+	<script type="text/javascript" src='path/jquery-2.2.0.min.js'></script>
+		<script type="text/javascript" src='path/uploadImg.js'></script
 </head>
 <body>
 </body>
-	<script type="text/javascript" src='assets/js/uploadImg.js'></script>
+>
 </html>
 ```
-#####三种效果展示：
+####三种效果展示：
 1.图片占满整个容器
 
 2.图片两边留空，水平垂直居中
 
 3.图片背景裁剪
-#####html代码
-######三种class都可以
+####html代码
 ```
-	<div class='img-preview-wrap' data-width='100px' data-height='100px'>
+	<div class='img-preview-wrap'>
 		
 	</div>
 ```
-```
-	<div class='img-preview-wrap1'>
-	</div>
-```
-```
-	<div class='img-preview-wrap2' data-width='100px' data-height='200px'>
-	</div>
-```
-#####方法调用
+注意，在html上可以设置data-present,data-multi参数，很遗憾😄不能设置data-width,data-height属性
+
+####方法调用
 ```
 	$('.img-preview-wrap').uploadPreview({
-		
+		//set opts.....
 	});
 ```
-######三种方法调用代码
-* 默认`full-fill`的展示方法
-   
-	js调用代码
-	
-```
-	$('.img-preview-wrap').uploadPreview({
-	
-	});	
-```
-* `white-space`展示方法
-	
-	js调用代码
-	
-```
-	$('.img-preview-wrap').uploadPreview({
-		presentation:'white-space',
-	});	
-```
-* `back-clip`展示方法
- 
-	js调用代码
-	
-```
-	$('.img-preview-wrap').uploadPreview({
-		presentation:'back-clip',
-	});	
-```
 #####默认设置
-`.img-upload-wrap`的`width`默认为100px,`height`默认为100px
-调用的`presentation`默认是`full-fill`
-#####三种表现形式
-参数`presentation`:通过传递参数值来决定你想要图片以哪种形式展示
+`.img-upload-wrap`的`data-multi`=1,默认是单图
 
-|名称             |      值
+调用的`present`默认是`full-fill`
+
+####参数
+参数`present`:通过传递参数值来决定你想要图片以哪种形式展示
+
+参数`width`:图片的父元素容器的宽度
+
+参数`height`:图片的父元素的高度
+
+参数`multi`:图片最多上传的张数
+
+|名称             |类型|   默认值|   描述
 | ------------- |:-------------:
-| full-fill(默认值) | 图片将div容器全占满全占满 
-| imgWidth | 图片将div容器全占满全占满 
-| white-space      | 图片或占满容器的宽度或占满容器的高度，但都会在容器里居中   
-| back-clip        | 图片展示在div容器的背景图上，图片会随着容器的高度宽度适应裁剪
+| width | string|100px|图片的父元素容器的宽度 
+| height | string|100px|图片的父元素容器的高度 
+| multi  |number|1    | 图片最多可以预览的张数，当值为1时，是单图预览，值大于1时是多图预览
+|present  |string    | 'full-fill' | 图片展示在父元素的布局效果
 
-#####div.img-upload-wrap的宽度和高度自定义设置
-默认是width:100px,heigh:100px
+####data-属性
 
-可以在页面上设置高度，宽度，设置方法如下：
+|名称             |类型|   默认值|   描述
+| ------------- |:-------------: 
+| data-multi  |number|1    | 图片最多可以预览的张数，当值为1时，是单图预览，值大于1时是多图预览
+|data-present  |string    | 'full-fill' | 图片展示在父元素的布局效果
 
-
-```
-  <div class='img-upload-wrap' data-width='100px' data-height='200px'>    
-		
-	</div>
-```
-通过data-width和data-height设置
-
-###多图预览
-___
-方法跟单图预览一样
-
-只是html代码多了一层
-
-```
-	<div class='img-preview-box clearfix'>
-		<div class='img-preview-wrap' data-width='100px' data-height='100px'>
-		</div>
-	</div>
-```
+####注意📢：js调用的参数会把data-属性的参数覆盖掉，换个意思说就是js的参数的优先级比html的参数的优先级要高
