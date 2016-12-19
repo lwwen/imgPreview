@@ -8,7 +8,6 @@
     jQuery.fn.extend({
         imgPreview: function(opts) {
             $(this).each(function(index, ele) {
-                console.log(ele)
                 var options = $.extend(opts, {});
                 opts = jQuery.extend({
                     imgType: ["gif", "jpeg", "jpg", "bmp", "png"],
@@ -28,7 +27,6 @@
                  *-----------------------------
                  为容器元素布局
                 */
-                var count = 0;
                 // _dom当成wrap-item
                 function setWrap(_dom) {
                     /**
@@ -89,7 +87,7 @@
                 if (opts.present == 'full-fill' || opts.present == 'white-space') {
                     $(ele).children('div').append('<img/>');
                 } else if (opts.present == 'back-clip') {
-                    console.log('back-clip');
+
                 }
 
                 /**
@@ -130,7 +128,6 @@
                             $(this).children('.upload-picbg').css('display', 'none');
                         })
                         _dom.children('.upload-delete').click(function() {
-                            count++;
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 curImgCount--;
                                 $(this).parent('div').remove();
@@ -158,7 +155,6 @@
                             })
                             //upload-delete click to do delate things
                         _dom.children('.upload-delete').click(function() {
-                            count++;
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 $(this).parent('div').remove();
                                 curImgCount--;
@@ -201,11 +197,9 @@
                             $(this).children('.upload-picbg').css('display', 'none');
                         })
                         _dom.children('.upload-delete').click(function() {
-                            count++;
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 $(this).parent('div').remove();
                                 var imgNums = $(ele).children('div').length;
-                                console.log('当前div' + imgNums)
                                 curImgCount--;
 
                             }
