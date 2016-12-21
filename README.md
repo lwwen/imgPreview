@@ -64,7 +64,7 @@ $('.img-preview-wrap').imgPreview({
 });
 ```
 
-> 注意：js的参数会优先调用，就是说，你要是在js设置了present的话，你的data-present就没有用了；同理，data-multi也是这样子的
+> 注意：js的参数会优先调用，就是说，你要是在js设置了present的话，你的data-present就没有用了；同理，data-multi也是这样的
 
 ## 图片预览开始
 
@@ -115,7 +115,7 @@ $('.img-preview-wrap').uploadPreview({
 调用的`present`默认是`full-fill`
 
 
-####参数
+####js参数
 
 * 参数`present`：通过传递参数值来决定你想要图片以哪种形式展示
 
