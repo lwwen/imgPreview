@@ -114,13 +114,16 @@
 		//set opts.....
 	});
 ```
-#####默认设置
+
+##### 默认设置
+
 `.img-upload-wrap`的`data-multi`=1,默认是单图
 
 调用的`present`默认是`full-fill`
 
 
-####参数
+#### 参数
+
 参数`present`:通过传递参数值来决定你想要图片以哪种形式展示
 
 参数`width`:图片的父元素容器的宽度
@@ -134,7 +137,7 @@
 | width | string|100px|图片的父元素容器的宽度 
 | height | string|100px|图片的父元素容器的高度 
 | multi  |number|1    | 图片最多可以预览的张数，当值为1时，是单图预览，值大于1时是多图预览
-|present  |string    | 'full-fill' | 图片展示在父元素的布局效果
+|present  |string    | "full-fill" | 图片展示在父元素的布局效果
 
 ####data-属性
 
