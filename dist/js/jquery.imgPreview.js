@@ -11,18 +11,21 @@
                 var options = $.extend(opts, {});
                 opts = jQuery.extend({
                     imgType: ["gif", "jpeg", "jpg", "bmp", "png"],
+
                     // 布局方式 默认方式是平铺
                     present: 'full-fill',
                     multi: 1,
                     width: '',
                     height: '',
                 }, opts || {});
+
                 /**
                  *-----------------------------
                  *-----------------------------
                  * 为容器元素布局
-                 */
+                */
                 function setWrap(_dom) {
+
                     /**
                      *
                      * 对wrap容器的宽高设置分几种情况
@@ -30,7 +33,7 @@
                      * 根据情况来对应wrap容器的宽高
                      *
                      * 优先顺序是js设置opts.width-->html设置data-width-->css设置 width
-                     */
+                    */
                     var divWidth, divHeight;
                     if (opts.width == '' && opts.height != '') {
                         divHeight = opts.height;
@@ -68,7 +71,6 @@
                 // 为容器wrap添加元素，并调用具体布局方法
                 $(ele).append(wrapInnerHtml);
                 setWrap($(ele).children('div'))
-
 
                 // 判断布局方法然后来决定要不要img这个标签，‘back-clip’则不需要img标签
                 if (opts.present == 'full-fill' || opts.present == 'white-space') {
@@ -197,7 +199,6 @@
 
                 };
 
-
                 /**
                  * --------------------------------------------------
                  *
@@ -216,7 +217,6 @@
                     }
                     return url
                 };
-
 
                 /**
                  * --------------------------------------------------
@@ -244,7 +244,6 @@
 
                     }
                 };
-
 
                 /**
                  * --------------------------------------------------
@@ -297,8 +296,6 @@
                     }
                 }
 
-
-
                 /**
                  * --------------------------------------------------
                  *
@@ -308,6 +305,7 @@
                  */
                 var curImgCount = 0;
                 $(ele).find('input[type="file"]').change(function(e) {
+                    
                     /**
                      * --------------------------------------------------
                      *
