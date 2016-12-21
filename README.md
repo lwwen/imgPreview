@@ -1,7 +1,7 @@
 # 图片预览
 
 
-## 图片预览说明
+## 概览
 
 实现图片上传前的预览功能，有单图预览跟多图预览
 
@@ -14,7 +14,6 @@
 3.	`back-clip`：上传的图片放在div的`background-image`背景图上，图片会占满整个div，但是会根据尺寸来剪裁图片
 	
 ## 下载方式
-
 
 
 ### 下载源代码
@@ -46,7 +45,7 @@
 <script type="text/javascript" src="path-to-root/jquery.imgPreview.js"></script>
 ```
 
-### 使用方法
+### 调用方法
 
 #### 通过data属性
 
