@@ -101,7 +101,7 @@ $('.img-preview-wrap').uploadPreview({
 	//set opts.....
 });
 ```
-#####默认设置
+####默认设置
 `.img-upload-wrap`的`multi`默认是1，也就是单图
 
 调用的`present`默认是`full-fill`
