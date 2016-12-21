@@ -11,7 +11,7 @@
                 var options = $.extend(opts, {});
                 opts = jQuery.extend({
                     imgType: ["gif", "jpeg", "jpg", "bmp", "png"],
-                    // 布局方式 默认方式是平铺
+                    //  布局方式 默认方式是平铺
                     present: 'full-fill',
                     multi: 1,
                     width: '',
