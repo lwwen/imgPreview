@@ -64,7 +64,7 @@
 	});
 ```
 
-**注意：js的参数会优先调用，就是说，你要是在js设置了present的话，你的data-present就没有用了；同理，data-multi也是这样子的**
+> 注意：js的参数会优先调用，就是说，你要是在js设置了present的话，你的data-present就没有用了；同理，data-multi也是这样子的
 
 ## 图片预览开始
 
