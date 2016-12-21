@@ -5,7 +5,7 @@
 
 实现图片上传前的预览功能，有单图预览跟多图预览
 
-图片包括三种布局方法：
+图片包括三种布局展示：
 
 1.	`full-fill`：图片随着div改变，图片根据div的宽高来拉伸，直到占满div
 
@@ -32,18 +32,18 @@
 一、引入css
 
 ```
-	<link rel='stylesheet' type='text/css' href='path-to-root/imgPreview.css'/>
+<link rel='stylesheet' type='text/css' href='path-to-root/imgPreview.css'/>
 ```
 
 该插件也使用到iconfont的图标库，需要引入iconfont的图片库，所以在压缩包里有打包iconfont
 
 ```
-	<link rel='stylesheet' type='test/css' href="path-to-root/iconfont.css"/>
+<link rel='stylesheet' type='text/css' href="path-to-root/iconfont.css"/>
 ```
 二、引入js
 
 ```
-	<script type="text/javascript" src="path-to-root/jquery.imgPreview.js"></script>
+<script type="text/javascript" src="path-to-root/jquery.imgPreview.js"></script>
 ```
 
 ### 使用方法
@@ -56,12 +56,12 @@
 
 #### 通过js调用
 ```
-	$('.img-preview-wrap').imgPreview({
-		width:'100px',
-		height:'200px',
-		present:'white-space',
-		multi:3
-	});
+$('.img-preview-wrap').imgPreview({
+    width:'100px',
+	height:'200px',
+	present:'white-space',
+	multi:3
+});
 ```
 
 > 注意：js的参数会优先调用，就是说，你要是在js设置了present的话，你的data-present就没有用了；同理，data-multi也是这样子的
@@ -73,19 +73,19 @@
 ### 快速开始
 
 ```
-	<!DOCTYPE html>
-	<html>
-	<head>
-		<meta charset='UTF-8'>
-		<title>图片上传</title>
-		<link rel="stylesheet" type="text/css" href="path/uploadImg.css">
-		<link rel="stylesheet" type="text/css" href="path/iconfont/iconfont.css">	
-		<script type="text/javascript" src='path/jquery-2.2.0.min.js'></script>
-		<script type="text/javascript" src='path/jquery.uploadImg.js'></script>
-	</head>
-	<body>
-	</body>
-	</html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>图片上传</title>
+	<link rel="stylesheet" type="text/css" href="path/uploadImg.css">
+	<link rel="stylesheet" type="text/css" href="path/iconfont/iconfont.css">	
+	<script type="text/javascript" src='path/jquery-2.2.0.min.js'></script>
+	<script type="text/javascript" src='path/jquery.uploadImg.js'></script>
+</head>
+<body>
+</body>
+</html>
 ```
 #### 三种效果展示：
 
@@ -97,7 +97,7 @@
 	
 #### html代码
 ```
-	<div class='img-preview-wrap'></div>
+<div class='img-preview-wrap'></div>
 ```
 
 > 注意，在html上可以设置`data-present`，`data-multi`参数，不能设置`data-width`，`data-height`属性
@@ -105,12 +105,12 @@
 
 #### 方法调用
 ```
-	$('.img-preview-wrap').uploadPreview({
-		//set opts.....
-	});
+$('.img-preview-wrap').uploadPreview({
+	//set opts.....
+});
 ```
 #####默认设置
-`.img-upload-wrap`的`data-multi=1`，默认是单图
+`.img-upload-wrap`的`multi`默认是1，也就是单图
 
 调用的`present`默认是`full-fill`
 
