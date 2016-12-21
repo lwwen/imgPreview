@@ -79,7 +79,7 @@ $('.img-preview-wrap').imgPreview({
 	<title>图片上传</title>
 	<link rel="stylesheet" type="text/css" href="path/uploadImg.css">
 	<link rel="stylesheet" type="text/css" href="path/iconfont/iconfont.css">	
-	<script type="text/javascript" src='path/jquery-2.2.0.min.js'></script>
+	<script type="text/javascript" src='path/jquery.js'></script>
 	<script type="text/javascript" src='path/jquery.uploadImg.js'></script>
 </head>
 <body>
