@@ -127,6 +127,8 @@ $('.img-preview-wrap').uploadPreview({
 |present  |string    | full-fill | 图片展示在父元素的布局效果
 
 ####data-属性
+* `data-multi`：图片最多上传的张数
+* `data-present`：图片以何种形式展示
 
 |名称             |类型|   默认值 |   描述
 | ------------- |:-------------: 
