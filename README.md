@@ -87,14 +87,7 @@ $('.img-preview-wrap').imgPreview({
 </body>
 </html>
 ```
-#### 三种效果展示：
 
-1.	图片占满整个容器
-
-2.	图片两边留空，水平垂直居中
-
-3.	图片背景裁剪
-	
 #### html代码
 ```
 <div class='img-preview-wrap'></div>
