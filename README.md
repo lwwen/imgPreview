@@ -1,30 +1,42 @@
-#图片预览
+
+# 图片预览
+
 -----
-##图片预览说明
-实现图片上传前的预览功能，有单图预览跟多图预览，
+
+## 图片预览说明
+
+实现图片上传前的预览功能，有单图预览跟多图预览。
 
 图片包括三种布局方法：
 
-1.full-fill：图片随着div改变，图片根据div的宽高来拉伸，直到占满div
+1. `full-fill`：图片随着div改变，图片根据div的宽高来拉伸，直到占满div
 
-2.white-space:当图片尺寸比例刚好跟div的宽高比例对等，就会占满div；当图片尺寸不对等时，会子适应本身图片的尺寸比例来适应div，图片不会变形拉伸，会在div里面垂直水平居中
+2. `white-space`：当图片尺寸比例刚好跟div的宽高比例对等，就会占满div；当图片尺寸不对等时，会子适应本身图片的尺寸比例来适应div，图片不会变形拉伸，会在div里面垂直水平居中
 
-3.back-clip:上传的图片放在div的background-image背景图上，图片会占满整个div,但是会根据尺寸来剪裁图片
+3. `back-clip`：上传的图片放在div的`background-image`背景图上，图片会占满整个div，但是会根据尺寸来剪裁图片
 	
 
 
-##下载方式
-____
-###下载源代码
+## 下载方式
+
+-----
+
+### 下载源代码
+
 你可以在右上角👆点击下载
-##npm
+
+## npm
+
 😯暂时没有
-##用法
-_____
+
+## 用法
+
+-----
+
 一、引入css
 
 ```
-	<link hre='path-to-root/imgPreview.css />'
+<link hre='path-to-root/imgPreview.css />'
 ```
 
 本插件也使用到iconfont的图标库，也需要引入iconfont的图片库，压缩包里有打包
@@ -32,20 +44,23 @@ _____
 ```
 	<link hre="path-to-root/iconfont.css" />'
 ```
+ 
 二、引入js
 
 ```
 	<script type="text/javascript" src='path-to-root/uploadImg.js'></script>
 ```
 
-##使用方法
+## 使用方法
 
-###通过data属性
+### 通过data属性
+
 你可以通过data-multi属性来决定不是多图预览还是单图预览
 
 也可以通过data-present：来决定你是选择哪种布局方法，具体的布局方式👆有
 
-###通过js调用
+### 通过js调用
+
 ```
 	$('.img-preview-wrap').imgPreview({
 		width:'100px',
@@ -54,12 +69,14 @@ _____
 		multi:3
 	});
 ```
-注意：js的参数会优先调用，就是说，你要是在js设置了present,那么很遗憾，😯，你的data-present就没有用了；当然，data-multi也是这样子的😄,
+> 注意：
+> js的参数会优先调用，就是说，你要是在js设置了present,那么很遗憾，😯，你的data-present就没有用了；当然，data-multi也是这样子的😄
 
+## 图片预览开始😄
 
-##图片预览开始😄
 -----
-###快速开始，基于jQuery，因为jQuery插件
+
+### 快速开始，基于jQuery，因为jQuery插件
 
 ```
 <!DOCTYPE html>
