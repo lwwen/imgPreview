@@ -11,12 +11,7 @@
                 var options = $.extend(opts, {});
                 opts = jQuery.extend({
                     imgType: ["gif", "jpeg", "jpg", "bmp", "png"],
-                    /**
-                     *---------------------------------------------------
-                     *---------------------------------------------------
-                     *布局方式
-                     *默认方式是平铺
-                     */
+                    // 布局方式 默认方式是平铺
                     present: 'full-fill',
                     multi: 1,
                     width: '',
@@ -25,17 +20,16 @@
                 /**
                  *-----------------------------
                  *-----------------------------
-                 为容器元素布局
+                 *  为容器元素布局
                 */
-                // _dom当成wrap-item
                 function setWrap(_dom) {
                     /**
                      *
-                     *对wrap容器的宽高设置分几种情况
+                     *  对wrap容器的宽高设置分几种情况
+                     *  
+                     *  根据情况来对应wrap容器的宽高
                      *
-                     *根据情况来对应wrap容器的宽高
-                     *
-                     *优先顺序是js设置opts.width-->html设置data-width-->css设置 width
+                     *  优先顺序是js设置opts.width-->html设置data-width-->css设置 width
                      */
                     var divWidth, divHeight;
                     if (opts.width == '' && opts.height != '') {
@@ -71,30 +65,19 @@
 
                 }
 
-                /**
-                 *-----------------------------
-                 *-----------------------------
-                 为容器wrap添加元素，并调用具体布局方法
-                */
-
+                //  为容器wrap添加元素，并调用具体布局方法
                 $(ele).append(wrapInnerHtml);
                 setWrap($(ele).children('div'))
-                    /**
-                     * --------------------------------------------------
-                     *
-                     *  判断布局方法然后来决定要不要img这个标签，‘back-clip’则不需要img标签
-                     */
+
+
+                // 判断布局方法然后来决定要不要img这个标签，‘back-clip’则不需要img标签
                 if (opts.present == 'full-fill' || opts.present == 'white-space') {
                     $(ele).children('div').append('<img/>');
                 } else if (opts.present == 'back-clip') {
 
                 }
 
-                /**
-                 * --------------------------------------------------
-                 *
-                 *  判断是不是多图预览，多图的话就加multiple属性
-                 */
+                // 判断是不是多图预览，多图的话就加multiple属性
                 if (opts.multi == 1) {
                     if ($(ele).data('multi') > 1) {
                         $(ele).find('input').attr('multiple', 'multiple')
@@ -102,11 +85,13 @@
                 } else if (opts.multi > 1) {
                     $(ele).find('input').attr('multiple', 'multiple')
                 }
+
                 /**
-                 *
-                 *根据present的值来对wrap容器进行相应的操作，wrap容器的布局
-                 *图片预览后对图片个wrap容器的操作
-                 */
+                 *--------------------------------------------------
+                 *--------------------------------------------------
+                 *  根据present的值来对wrap容器进行相应的操作，wrap容器的布局
+                 *  图片预览后对图片个wrap容器的操作
+                */
                 var handleDiv = function(_dom, type) {
                     if (type == 'back-clip') {
                         _dom.css({
@@ -148,12 +133,10 @@
                                     $(this).children('.upload-picbg').css('display', 'block');
                                 }
                             })
-                            //upload wrap mouseleave to do something
                         _dom.mouseleave(function() {
                                 $(this).children('.upload-delete').css('display', 'none');
                                 $(this).children('.upload-picbg').css('display', 'none');
                             })
-                            //upload-delete click to do delate things
                         _dom.children('.upload-delete').click(function() {
                             if (opts.multi > 1 || $(ele).data('multi') > 1) {
                                 $(this).parent('div').remove();
@@ -220,7 +203,7 @@
                  *
                  * --------------------------------------------------
                  *
-                 *   预览图片前先获得上传的文件路径Url，多张图片时就有多个Url
+                 *  预览图片前先获得上传的文件路径Url，多张图片时就有多个Url
                  */
                 ele.getElementsByTagName('input').getObjectURL = function(file) {
                     var url = null;
@@ -240,7 +223,7 @@
                  *
                  * --------------------------------------------------
                  *
-                 *   选择多张图片上传时创建多个div
+                 *  选择多张图片上传时创建多个div
                  */
                 var createDiv = function(_dom, files, type) {
                     for (var n = 0; n < files.length; n++) {
@@ -268,9 +251,9 @@
                  *
                  * --------------------------------------------------
                  *
-                 *   监听每个wrap的input的click事件
-                 *   要是页面上的wrap下的div数量超过了设置的multi的数量
-                 *   click就不能点击，return false
+                 *  监听每个wrap的input的click事件
+                 *  要是页面上的wrap下的div数量超过了设置的multi的数量
+                 *  click就不能点击，return false
                  */
                 $(ele).find('input[type="file"]').click(function(e) {
                     var itemLength = $(ele).children('div').length;
@@ -321,7 +304,7 @@
                  *
                  * --------------------------------------------------
                  *
-                 *   监听每个wrap的input的change事件
+                 *  监听每个wrap的input的change事件
                  */
                 var curImgCount = 0;
                 $(ele).find('input[type="file"]').change(function(e) {
@@ -351,15 +334,8 @@
                     }
 
                     curImgCount += e.target.files.length
-                        // 判断当前input已经选择了几个图片
 
-                    /**
-                     * --------------------------------------------------
-                     *
-                     * --------------------------------------------------
-                     *
-                     *   根据present来设置相应的操作
-                     */
+                    //  根据present来设置相应的操作
                     if (opts.present == 'full-fill') {
                         if ($(ele).data('present') != undefined) {
                             if ($(ele).data('present') == 'white-space') {
@@ -376,22 +352,12 @@
                     } else if (opts.present == 'back-clip') {
                         setPre($(this), this, 'back-clip')
                     }
-                    /**
-                     * --------------------------------------------------
-                     *
-                     * --------------------------------------------------
-                     *
-                     *   解决input不能重复选同一个图片的问题
-                     */
+
+                    //  解决input不能重复选同一个图片的问题
                     $(this).wrap('<form>').closest('form').get(0).reset();
                     $(this).unwrap('<form>');
-                    /**
-                     * --------------------------------------------------
-                     *
-                     * --------------------------------------------------
-                     *
-                     *   判断图片的类型，图片的类型只能是opts.imgtType里面的类型
-                     */
+
+                    //  判断图片的类型，图片的类型只能是opts.imgtType里面的类型
                     if (this.value) {
                         if (!RegExp("\.(" + opts.imgType.join('|') + ")$", "i").test(this.value.toLowerCase())) {
                             alert('选择文件错误，图片类型必须是' + opts.imgType.join(',') + '中的一种');
