@@ -8,7 +8,6 @@
     jQuery.fn.extend({
         imgPreview: function(opts) {
             $(this).each(function(index, ele) {
-                var options = $.extend(opts, {});
                 opts = jQuery.extend({
                     imgType: ["gif", "jpeg", "jpg", "bmp", "png"],
 
@@ -75,8 +74,6 @@
                 // 判断布局方法然后来决定要不要img这个标签，‘back-clip’则不需要img标签
                 if (opts.present == 'full-fill' || opts.present == 'white-space') {
                     $(ele).children('div').append('<img/>');
-                } else if (opts.present == 'back-clip') {
-
                 }
 
                 // 判断是不是多图预览，多图的话就加multiple属性
