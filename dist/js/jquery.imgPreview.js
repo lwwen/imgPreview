@@ -305,7 +305,7 @@
                  */
                 var curImgCount = 0;
                 $(ele).find('input[type="file"]').change(function(e) {
-                    
+
                     /**
                      * --------------------------------------------------
                      *
@@ -321,11 +321,7 @@
                         if ($(ele).data('multi') != undefined && e.target.files.length > ($(ele).data('multi') - curImgCount)) {
                             alert('超过了' + $(ele).data('multi') + '张限制了')
                             return false
-                        } else if ($(ele).data('multi') == undefined && e.target.files.length > opts.multi) {
-                            alert('超过了' + opts.multi + '张限制了')
-                            return false;
-                        }
-
+                        } 
                     } else if (opts.multi > 1 && e.target.files.length > (opts.multi - curImgCount)) {
                         alert('超过了' + opts.multi + '张限制了')
                         return false
