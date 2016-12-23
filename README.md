@@ -125,7 +125,7 @@ $('.img-preview-wrap').uploadPreview({
 | multi  |number|1    | 图片最多可以预览的张数，当值为1时，是单图预览，值大于1时是多图预览
 |present  |string    | full-fill | 图片展示在父元素的布局效果
 
-####data-属性
+####data属性
 * `data-multi`：图片最多上传的张数
 * `data-present`：图片以何种形式展示
 
