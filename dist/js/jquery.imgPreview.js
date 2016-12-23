@@ -26,9 +26,7 @@
                 function setWrap(_dom) {
 
                     // 对wrap容器的宽高设置分几种情况
-
                     // 根据情况来对应wrap容器的宽高
-
                     // 优先顺序是js设置opts.width-->html设置data-width-->css设置 width
                     var divWidth, divHeight;
                     if (opts.width == '' && opts.height != '') {
@@ -305,7 +303,7 @@
                     // if opts.multi==1，{然后在wrap容器设置data-multi，要是上传的数量多于data-multi就会报错alert}
                     // else(opt.multi==1,也没有设置data-mult){上传的数量就不能多于1张}
                     // else(opt.multi>1)就不能设置data-multi{上传的数量就不能大于opts.multi的值}
-                    
+
                     if (opts.multi == 1) {
                         if ($(ele).data('multi') != undefined && e.target.files.length > ($(ele).data('multi') - curImgCount)) {
                             alert('超过了' + $(ele).data('multi') + '张限制了')
